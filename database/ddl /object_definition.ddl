@@ -4,8 +4,15 @@ create schema CORE;
 create schema SEMANTIC;
 
 -- Create the S3 stage
-CREATE OR REPLACE STAGE stg_yt_channel_md
+CREATE OR REPLACE STAGE stg_yt_channel
   URL = 's3://youtube-stats-001/dump/parquet/channel/'
+  CREDENTIALS = (
+    AWS_KEY_ID = 'AWS_ACCESS_KEY_ID'
+    AWS_SECRET_KEY = '<AWS_SECRET_ACCESS_KEY>'
+  );
+
+CREATE OR REPLACE STAGE stg_yt_channel_md
+  URL = 's3://youtube-stats-001/dump/parquet/channel_md/'
   CREDENTIALS = (
     AWS_KEY_ID = 'AWS_ACCESS_KEY_ID'
     AWS_SECRET_KEY = '<AWS_SECRET_ACCESS_KEY>'
@@ -36,11 +43,18 @@ title VARCHAR(300),
 custom_url VARCHAR(100),
 published_at timestamp_ntz(0),
 country VARCHAR(50),
+etl_ts  timestamp_ntz(0)
+);
+
+create or replace TABLE TESTDB.CORE.tbl_stg_yt_channel_stats (
+channel_id VARCHAR(200),
+rptg_dt date,
 view_count bigint,
 subscriber_count bigint,
 video_count integer,
 etl_ts  timestamp_ntz(0)
 );
+
 
 create or replace TABLE TESTDB.CORE.tbl_stg_yt_video_md (
 id VARCHAR(100),
@@ -73,11 +87,18 @@ title VARCHAR(300),
 custom_url VARCHAR(100),
 published_at timestamp_ntz(0),
 country VARCHAR(50),
+etl_ts  timestamp_ntz(0)
+);
+
+create or replace TABLE TESTDB.CORE.tbl_yt_channel_stats (
+channel_id VARCHAR(200),
+rptg_dt date,
 view_count bigint,
 subscriber_count bigint,
 video_count integer,
 etl_ts  timestamp_ntz(0)
 );
+
 
 create or replace TABLE TESTDB.CORE.tbl_yt_video_md (
 id VARCHAR(100),
