@@ -18,7 +18,7 @@ CREATE OR REPLACE STAGE stg_yt_video_md
     AWS_SECRET_KEY = '<AWS_SECRET_ACCESS_KEY>'
   );
 
-CREATE OR REPLACE STAGE stg_yt_video
+CREATE OR REPLACE STAGE stg_yt_video_stats
   URL = 's3://youtube-stats-001/dump/parquet/video/'
   CREDENTIALS = (
     AWS_KEY_ID = 'AWS_ACCESS_KEY_ID'
@@ -51,7 +51,7 @@ published_at timestamp_ntz(0),
 etl_ts  timestamp_ntz(0)
 );
 
-create or replace TABLE TESTDB.CORE.tbl_stg_yt_video (
+create or replace TABLE TESTDB.CORE.tbl_stg_yt_video_stats (
 id VARCHAR(100),
 channel_id VARCHAR(200),
 rptg_dt date,
@@ -89,7 +89,7 @@ etl_ts  timestamp_ntz(0)
 );
 
 
-create or replace TABLE TESTDB.CORE.tbl_yt_video (
+create or replace TABLE TESTDB.CORE.tbl_yt_video_stats (
 id VARCHAR(100),
 channel_id VARCHAR(200),
 rptg_dt date,
