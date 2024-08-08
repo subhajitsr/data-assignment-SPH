@@ -24,5 +24,6 @@ This Solution uses gcloud sdk and Youtube Data API to fetch some public data rel
    - Bucket Name: `youtube-stats-001`
    - Path:
         - `dump/parquet/channel`
+        - `dump/parquet/channel_md`
         - `dump/parquet/video_md`
         - `dump/parquet/video`
