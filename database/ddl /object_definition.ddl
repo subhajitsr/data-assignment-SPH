@@ -4,7 +4,7 @@ create schema CORE;
 create schema SEMANTIC;
 
 -- Create the S3 stage
-CREATE OR REPLACE STAGE stg_yt_channel
+CREATE OR REPLACE STAGE stg_yt_channel_stats
   URL = 's3://youtube-stats-001/dump/parquet/channel/'
   CREDENTIALS = (
     AWS_KEY_ID = 'AWS_ACCESS_KEY_ID'
