@@ -8,10 +8,7 @@ This Solution uses gcloud sdk and Youtube Data API to fetch some public data rel
 1. The solution is built to be run in an Airflow scheduler. the `youtube-data-analytics-loader.py` file in the 'dags' folder needs to be placed in the `airflow/dags` directory of the instance.
 2. Install the gcloud sdk which is a prerequisite. Please follow the instruction here - https://cloud.google.com/sdk/docs/install
 3. All the necessary Pypi packages are mentioned in the `requirements.txt`. Same needs to be installed in the system where the Airflow instance is running from.
-4. Need to set the Snowflake connectivity details in the Airflow variable as below,
-   - `SF_USERNAME`: Snowflake DB username
-   - `SF_PASSWORD`: Password for the username
-   - `SF_ACCOUNT`: Snowflake account name
+4. Need to set the Snowflake connection details in the Airflow connections. Setup the SF connection details with the name `yt-analytics-sf`
 5. Set the AWS Secret in the Environmental variable as below.
    - For Linax/MacOS:
       - `export AWS_ACCESS_KEY_ID=your_access_key_id`
