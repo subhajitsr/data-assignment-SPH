@@ -1,4 +1,4 @@
-## Youtube-data-analysis
+## Youtube-data-analytics
 
 This Solution uses gcloud sdk and Youtube Data API to fetch some public data related to few listed channels from Youtube, store it to Datalake and eventually loading it to Snowflake data watehouse to perform data analysis and produce insights.
 
